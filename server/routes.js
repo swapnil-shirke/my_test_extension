@@ -8,6 +8,7 @@ module.exports = {
 					"awesome": "blosum",
 					"adsr": [
 						"sdsdfafa",
+						"swapnil",
 						"sdfsdf",
 						1
 					]	
