@@ -4,7 +4,6 @@ module.exports = {
 	"/v1/functions/swapnil": {
 		GET: function(req, res){
 			this.resSuccess(req, res, {
-<<<<<<< HEAD
 				swapnil: {
 					"awesome": "blosum",
 					"adsr": [
@@ -13,9 +12,7 @@ module.exports = {
 						1
 					]	
 				}
-=======
-				swapnil: "is awesome and smart man and super hero"
->>>>>>> 8f3b319632d00736b1a312d6d700bf4654c71ddd
+
 			})
 		}
 	},
