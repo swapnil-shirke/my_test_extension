@@ -18,6 +18,133 @@ module.exports = {
 			})
 		}
 	},
+	"/v1/functions/env_test_local": {
+		POST: function(req, res) {
+			console.log("dsfasdfds")
+			var that = this
+			req.builtApp = req.builtApp.persistSessionWith(Built.Session.MEMORY)
+				// .setMasterKey('blt15ff0fcff1977cb3')
+				.setAuthToken(req.built.getContextVar('currentUser').authtoken)
+
+			// console.log(req.builtApp.options)
+			req.logger.log("user", req.built.getContextVar('currentUser'))
+				// .setPort(8000)
+				// .setProtocol("http")
+				// .setHost("dev-api.built.io")
+
+			var response = {}
+
+			return req.builtApp.Class('person').Object(req.payload.data.person)
+				.save()
+				.then(function(person) {
+					response['person'] = person.toJSON()
+					console.log("======swapnil=====")
+					console.log("======shirke=====")
+					return req.builtApp.Class('address').Object(req.payload.data.address)
+						.save()
+				})
+				.then(function(address) {
+					response['address'] = address.toJSON()
+
+					return that.resSuccess(req, res, response)
+				})
+				.catch(function(err) {
+					console.log(err, "=========================")
+					return that.resError(req, res, err)
+				})
+		}
+	},
+	"/v1/functions/env_test_stag2": {
+		POST: function(req, res) {
+			var that = this
+
+			// req.logger.log("req.payload.data")
+
+			req.builtApp = req.builtApp
+				.setHost("stag-api.built.io")
+				.setProtocol("https")
+				// .setPort(8000)
+				.setMasterKey("bltafd147ed047b1356")
+				.setHeader("application_api_key", "blted7d1eef38a4a3d1")
+
+			var response = {}
+
+			return req.builtApp.Class('person').Object(req.payload.data.person)
+				// req.logger.log(req.payload.data.person)
+				.save()
+				.then(function(person) {
+					response['person'] = person.toJSON()
+					return req.builtApp.Class('address').Object(req.payload.data.address)
+						.save()
+				})
+				.then(function(address) {
+					response['address'] = address.toJSON()
+					return that.resSuccess(req, res, response)
+				})
+		}
+	},
+	"/v1/functions/env_test_stag": {
+		POST: function(req, res) {
+			var that = this
+
+			// req.logger.log("req.payload.data")
+
+			req.builtApp = req.builtApp
+				.setHost("stag-api.built.io")
+				.setProtocol("https")
+				// .setPort(8000)
+				.setMasterKey("bltafd147ed047b1356")
+				.setHeader("application_api_key", "blted7d1eef38a4a3d1")
+
+			var response = {}
+
+			return req.builtApp.Class('person').Object(req.payload.data.person)
+				// req.logger.log(req.payload.data.person)
+				.save()
+				.then(function(person) {
+					response['person'] = person.toJSON()
+					return req.builtApp.Class('address').Object(req.payload.data.address)
+						.save()
+				})
+				.then(function(address) {
+					response['address'] = address.toJSON()
+					return that.resSuccess(req, res, response)
+				})
+		}
+	},
+	"/v1/functions/validError": {
+		POST: function(req, res) {
+			var that = this
+
+			req.builtApp = req.builtApp
+				// .setHost("localhost")
+				// .setProtocol("http")
+				// .setPort(8000)
+
+				req.logger.log(req.builtApp)
+
+			var response = {}
+
+			return that.resError(req, res, {
+				name: "================"
+			})
+		}
+	},
+	"/v1/functions/throwError": {
+		POST: function(req, res) {
+			var that = this
+			req.builtApp = req.builtApp
+				.setHost("localhost")
+				.setProtocol("http")
+				.setPort(8000)
+
+			var response = {}
+			console.log("reached throwError")
+			throw {
+				name: "is not a string"
+			}
+		}
+	},
 	"/v1/functions/chinu": {
 		GET: function(req, res){
 			this.resSuccess(req, res, {
