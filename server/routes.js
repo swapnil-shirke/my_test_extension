@@ -4,7 +4,14 @@ module.exports = {
 	"/v1/functions/swapnil": {
 		GET: function(req, res){
 			this.resSuccess(req, res, {
-				swapnil: "is awesome"
+				swapnil: {
+					"awesome": "blosum",
+					"adsr": [
+						"sdsdf",
+						"sdfsdf",
+						1
+					]	
+				}
 			})
 		}
 	},
