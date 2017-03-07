@@ -39,7 +39,7 @@ module.exports = {
 				.then(function(person) {
 					response['person'] = person.toJSON()
 					console.log("======swapnil=====")
-					console.log("======shirke=====")
+					console.log("======shirke=====" + "hello")
 					return req.builtApp.Class('address').Object(req.payload.data.address)
 						.save()
 				})
