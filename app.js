@@ -1,13 +1,13 @@
 var Built = require('built-extension-sdk')
-
+console.log("my app is working!")
 // Initiate application
-var app = Built.App('blt9e750c9042a275')
+var app = Built.App('blt9407dfdad47b47aa')
 // .setHost('localhost')
 // .setPort(8000)
-.setHost("stag-api.built.io")
+.setHost("dev-api.built.io")
 .setProtocol("https")
 // .setPort(80)
-.setMasterKey('blt00e5c52836f7ec')
+.setMasterKey('blt45451d69ab2dcb65')
 
 var extensionSDK = app.Extension({
 	secret_key     : 'mojojogo',
