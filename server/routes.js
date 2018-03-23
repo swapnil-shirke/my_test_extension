@@ -248,11 +248,11 @@ module.exports = {
 				req.bobjekt = req.bobjekt.setReferenceWhere("address", {
 					"city": "Mumbai"
 				})
-				return when.resolve()
+				return this.resSuccess(req, res)
 			},
 			_post: function(req, res) {
 				req.bobjekt['new_field'] = "new_value"
-				return when.resolve()
+				return this.resSuccess(req, res)
 			}
 		}
 	},
@@ -261,23 +261,23 @@ module.exports = {
 			_pre: function(req, res){
 				req.logger.warn("warn")
 				req.bobjekt = req.bobjekt.set("name", "smita")
-				return when.resolve()
+				return this.resSuccess(req, res)
 			},
 			_post: function(req, res){
 				req.bobjekt['extra_field'] = "added"
-				return when.resolve()
+				return this.resSuccess(req, res)
 			}
 		},
 		GET: {
 			_post: function(req, res){
 				req.bobjekt.name = "bindok_"+req.bobjekt.name
-				return when.resolve()
+				return this.resSuccess(req, res)
 			}
 		},
 		DELETE : {
 			_pre: function(req, res){
 				console.log("_pre")
-				return when.resolve()	
+				return this.resSuccess(req, res)	
 			},
 			_post: function(req, res){
 				console.log("_post")
