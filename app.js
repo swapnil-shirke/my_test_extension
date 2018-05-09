@@ -1,16 +1,16 @@
 var Built = require('built-extension-sdk')
 console.log("my app is working!")
 // Initiate application
-var app = Built.App('blt9407dfdad47b47aa')
+var app = Built.App('blt81ca23eaa3e8d585')
 // .setHost('localhost')
 // .setPort(8000)
-.setHost("dev-api.built.io")
+.setHost("stag-api.built.io")
 .setProtocol("https")
 // .setPort(80)
-.setMasterKey('blt45451d69ab2dcb65')
+.setMasterKey('bltf41b9fc24eab55f4')
 
 var extensionSDK = app.Extension({
-	secret_key     : 'mojojogo',
+	secret_key     : 'swapnil',
 	extension_key	 : 'blt_ext_default',
 	static         : __dirname + '/client',
 	routes         : require('./server/routes')
