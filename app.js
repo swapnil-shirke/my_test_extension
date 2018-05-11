@@ -1,13 +1,13 @@
 var Built = require('built-extension-sdk')
 console.log("my app is working!")
 // Initiate application
-var app = Built.App('blt81ca23eaa3e8d585')
+var app = Built.App('blt9a55b336dd3c7cf4')
 // .setHost('localhost')
 // .setPort(8000)
-.setHost("stag-api.built.io")
+.setHost("dev-api.built.io")
 .setProtocol("https")
 // .setPort(80)
-.setMasterKey('bltf41b9fc24eab55f4')
+.setMasterKey('blt15ff0fcff1977cb3')
 
 var extensionSDK = app.Extension({
 	secret_key     : 'swapnil',
